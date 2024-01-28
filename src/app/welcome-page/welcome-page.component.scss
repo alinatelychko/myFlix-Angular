@@ -1,0 +1,32 @@
+.main-page {
+    background-color: rgba(0, 31, 63, 0.9); // Navy Background with 90% Opacity
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  
+    h1 {
+      font-size: 2.5em;
+      color: rgba(255, 255, 255, 0.9); // White Text Color with 90% Opacity
+      margin-bottom: 20px;
+    }
+  
+    button {
+      background-color: rgba(46, 110, 152, 0.8); // Sky Blue Button with 80% Opacity
+      color: rgba(255, 255, 255, 0.9); // White Text Color with 90% Opacity
+      margin: 15px; // Increased margin for better spacing
+      padding: 20px 40px; // Increased padding for a larger button
+      border: none;
+      border-radius: 8px; // Increased border-radius for a rounded appearance
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: rgba(41, 128, 185, 0.8); // Darker Sky Blue on Hover with 80% Opacity
+      }
+    }
+  }
+  
