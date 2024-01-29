@@ -43,11 +43,13 @@ export class UserProfileComponent implements OnInit {
     this.userData.Email = this.user.Email;
     // this.user.Birthday comes in as ISOString format, like so: "2011-10-05T14:48:00.000Z"
     this.userData.Birthday = formatDate(this.user.Birthday, 'yyyy-MM-dd', 'en-US', 'UTC+0');
-
+  
+    // Fetch favorite movies using the user's FavoriteMovies array
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-      this.favoriteMovies = resp.filter((m: { _id: any; }) => this.user.FavoriteMovies.indexOf(m._id) >= 0);
+      this.favoriteMovies = resp.filter((m: { _id: any }) => this.user.FavoriteMovies.includes(m._id));
     });
   }
+  
 
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {

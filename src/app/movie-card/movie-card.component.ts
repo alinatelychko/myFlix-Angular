@@ -15,6 +15,8 @@ export class MovieCardComponent {
   @Input() movie: any;
   @Input() onFavoriteToggle: (movieId: string) => void;
   @Input() favoriteMovies: string[];
+  
+  movies: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -23,6 +25,10 @@ export class MovieCardComponent {
   ) {
     this.onFavoriteToggle = (movieId: string) => {};
     this.favoriteMovies = [];
+  }
+
+  ngOnInit(): void {
+    this.getMovies();
   }
 
   openGenre(name: string, description: string): void {
@@ -52,6 +58,14 @@ export class MovieCardComponent {
     });
   }
 
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.movies = resp;
+      console.log(this.movies);
+      return this.movies;
+    });
+  }
+
   openMovieInfoDialog(title: string, content: string): void {
     this.dialog.open(MovieInfoComponent, {
       data: { title, content },
@@ -60,13 +74,20 @@ export class MovieCardComponent {
 
   toggleFavorite(): void {
     const movieId = this.movie._id;
-    this.onFavoriteToggle(movieId);
-    if (this.isFavorite()) {
-      this.addFavorite(movieId);
-    } else {
+    const isFavorite = this.isFavorite();
+  
+    if (isFavorite) {
       this.removeFavorite(movieId);
+      this.favoriteMovies = this.favoriteMovies.filter(id => id !== movieId);
+    } else {
+      this.addFavorite(movieId);
+      this.favoriteMovies.push(movieId);
     }
+  
+    // Notify the parent component about the change
+    this.onFavoriteToggle(movieId);
   }
+  
 
   isFavorite(): boolean {
     return this.favoriteMovies.includes(this.movie._id);
@@ -83,12 +104,18 @@ export class MovieCardComponent {
   }
 
   removeFavorite(id: string): void {
-    this.fetchApiData.deleteFavoriteMovie(id).subscribe(() => {
-      this.snackBar.open('Movie removed from favorites.', 'OK', {
-        duration: 2000
-      });
-    }, (error) => {
-      console.error('Error removing movie from favorites:', error);
-    });
+    this.fetchApiData.deleteFavoriteMovie(this.movie.Username.id).subscribe(
+      () => {
+        this.snackBar.open('Movie removed from favorites.', 'OK', { duration: 2000 });
+      },
+      (error) => {
+        console.error('Error removing movie from favorites:', error);
+      }
+    );
   }
+
+  isFavoriteById(movieId: string): boolean {
+    return this.favoriteMovies.includes(movieId);
+  }
+
 }

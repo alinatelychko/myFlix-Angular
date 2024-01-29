@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="showTopBar && isLoggedIn">
     <a mat-button (click)="toMovies()" target="_blank" matTooltip="All movies">myFlix</a>
     <span class="example-spacer"></span>
     <button mat-icon-button (click)="toProfile()" class="person-icon" aria-label="Person icon-button" matTooltip="My Profile">
@@ -7,4 +7,4 @@
     <button mat-icon-button (click)="logOut()" class="logout-icon" aria-label="Logout icon-button" matTooltip="Log out">
       <mat-icon>logout</mat-icon>
     </button>
-  </mat-toolbar>
+</mat-toolbar>
