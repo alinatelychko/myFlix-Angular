@@ -21,7 +21,7 @@ This project is a web-based movie application built with Angular. It allows user
 1. Clone the repository:
   
    git clone https://github.com/alinatelychko/myFlix-Angular.git
-   cd myFlix-Angular-client
+   cd myFlix-Angular
 
 2. Install dependencies:
 
@@ -56,11 +56,7 @@ myFlix-Angular-client/
 |-- ...
 ## Documentation
 
-The documentation for this project is generated using Typedoc. To generate documentation, run the following command:
-
-typedoc --out ./docs 
-
-This will create a docs folder with the generated documentation.
+The documentation for this project is generated using Compodoc. To view the documentation, open the  documentation/index.html  file in your browser.
 
 ## Contributing
 Contributions are welcome! Feel free to submit issues or pull requests.
