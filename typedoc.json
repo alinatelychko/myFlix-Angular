@@ -15,11 +15,10 @@
 //     "excludeProtected": true,
 //     "tsconfig": "tsconfig.json"
 //   }
-
 {
     "out": "./docs",
-    "includes": ["./src"],
-    "exclude": ["node_modules", "**/*.spec.ts"],
-    "theme": "default"
+    "entryPoints": ["./src"],
+    "exclude": ["**/*.spec.ts"],
+    "excludeExternals": true
   }
 

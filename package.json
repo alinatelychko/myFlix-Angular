@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "doc:generate": "typedoc --out docs",
-    "doc:open": "open ./docs/index.html" 
+    "doc:open": "open ./docs/index.html"
   },
   "private": true,
   "dependencies": {
