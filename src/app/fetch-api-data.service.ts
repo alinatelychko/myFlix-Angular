@@ -1,4 +1,7 @@
-
+/**
+ * Service for handling API requests related to user registration, login, movies, and user profile.
+ * @module FetchApiDataService
+ */
 
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
@@ -8,13 +11,25 @@ import { Observable, throwError } from 'rxjs';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://movieapicf-30767e813dee.herokuapp.com/';
+
+/**
+ * Injectable service class for making API requests.
+ * @class FetchApiDataService
+ * @constructor
+ * @param {HttpClient} http - Injected HttpClient module to make HTTP requests.
+ */
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class FetchApiDataService {
-  // Inject the HttpClient module to the constructor params
- // This will provide HttpClient to the entire class, making it available via this.http
+/**
+   * Constructor of the service.
+   * @constructor
+   * @param {HttpClient} http - Injected HttpClient module to make HTTP requests.
+   */
+
   constructor(private http: HttpClient) {
   }
  // Making the api call for the user registration endpoint

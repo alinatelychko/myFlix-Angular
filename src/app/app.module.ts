@@ -1,3 +1,9 @@
+/**
+ * Main module for the Angular application.
+ * Defines components, modules, and routes for the application.
+ * @module AppModule
+ */
+
 import { FormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +36,10 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
+/**
+ * Main Angular module that declares components, imports modules, and provides routes.
+ * @class AppModule
+ */
 
 @NgModule({
   declarations: [

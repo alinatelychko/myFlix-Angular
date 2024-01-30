@@ -1,3 +1,8 @@
+/**
+ * Component for the user login form.
+ * @module user-login-form
+ */
+
 import { Component, OnInit, Input } from '@angular/core';
 
 // This import is used to close the dialog on success
@@ -10,6 +15,10 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router'; 
 
+/**
+ * UserLoginFormComponent class.
+ * @class
+ */
 
 @Component({
   selector: 'app-user-login-form',
@@ -20,6 +29,15 @@ export class UserLoginFormComponent implements OnInit {
 
   @Input() loginData = { Username: '', Password: '' };
 
+ /**
+   * Constructor of UserLoginFormComponent.
+   * @constructor
+   * @param {FetchApiDataService} fetchApiData - Service for making API calls.
+   * @param {MatDialogRef<UserLoginFormComponent>} dialogRef - Reference to the dialog.
+   * @param {MatSnackBar} snackBar - Service for displaying snack bar notifications.
+   * @param {Router} router - Angular router service.
+   */
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -27,10 +45,17 @@ export class UserLoginFormComponent implements OnInit {
     private router: Router
     ) {}
 
+    /**
+   * Lifecycle hook called after component initialization.
+   * @method
+   */
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+ /**
+   * Function responsible for sending the user login form inputs to the backend.
+   * @method
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe((result) => {
       // Logic for a successful user login goes here! (To be implemented)

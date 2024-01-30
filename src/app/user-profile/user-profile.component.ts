@@ -1,3 +1,8 @@
+/**
+ * Component for user profile details and management.
+ * @module user-profile
+ */
+
 import { Component, OnInit, Input } from '@angular/core';
 
 // // You'll use this import to close the dialog on success
@@ -12,6 +17,10 @@ import { Router } from '@angular/router';
 
 import { formatDate } from '@angular/common';
 
+/**
+ * Component class for user profile details and management.
+ * @class
+ */
 
 @Component({
   selector: 'app-user-profile',
@@ -26,6 +35,15 @@ export class UserProfileComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
+
+  /**
+   * Constructor for UserProfileComponent.
+   * @constructor
+   * @param {FetchApiDataService} fetchApiData - Service for fetching API data.
+   * @param {MatSnackBar} snackBar - Service for displaying snack bar notifications.
+   * @param {Router} router - Angular router service.
+   */
+
   constructor(
     public fetchApiData: FetchApiDataService,
     //public dialogRef: MatDialogRef<UserProfileComponent>,
@@ -33,10 +51,19 @@ export class UserProfileComponent implements OnInit {
     private router: Router
   ) { }
 
+   /**
+   * Lifecycle hook called after component initialization.
+   * @function
+   */
+
   ngOnInit(): void {
     this.getUser();
   }
 
+  /**
+   * Fetches user details and favorite movies.
+   * @function
+   */
   getUser(): void {
     this.user = this.fetchApiData.getOneUser();
     this.userData.Username = this.user.Username;
@@ -50,6 +77,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
   
+/**
+   * Edits user details.
+   * @function
+   */
 
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
@@ -65,6 +96,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Deletes user account.
+   * @function
+   */
+  
   deleteUser(): void {
     this.fetchApiData.deleteUser().subscribe((result) => {
       localStorage.clear();

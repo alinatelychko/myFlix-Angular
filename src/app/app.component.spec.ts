@@ -1,5 +1,15 @@
+/**
+ * Unit tests for the AppComponent.
+ * @module AppComponent
+ */
+
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+
+/**
+ * Test suite for the AppComponent.
+ * @class
+ */
 
 describe('AppComponent', () => {
   beforeEach(async () => {

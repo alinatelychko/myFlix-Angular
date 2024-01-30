@@ -1,3 +1,7 @@
+/**
+ * Component representing the top bar of the application.
+ * @module bar
+ */
 
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';

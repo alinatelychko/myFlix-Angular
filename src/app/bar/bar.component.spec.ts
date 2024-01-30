@@ -1,6 +1,16 @@
+/**
+ * Unit tests for the TopBarComponent.
+ * @module bar.spec
+ */
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BarComponent } from './bar.component';
+
+/**
+ * Describe block for testing TopBarComponent.
+ * @describe
+ */
 
 describe('BarComponent', () => {
   let component: BarComponent;

@@ -1,28 +1,75 @@
-# MyFlixAngularClient
+# MyFlix Angular Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+This project is a web-based movie application built with Angular. It allows users to browse movies, view details, and manage their favorite movies.
 
-## Development server
+## Table of Contents
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
+- Node.js: Make sure you have Node.js installed. You can download it [here](https://nodejs.org/).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
+1. Clone the repository:
+  
+   git clone https://github.com/alinatelychko/myFlix-Angular.git
+   cd myFlix-Angular-client
 
-## Build
+2. Install dependencies:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+npm install
 
-## Running unit tests
+3. Start the application:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ng serve
 
-## Running end-to-end tests
+The app will be available at http://localhost:4200/.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Usage
 
-## Further help
+Open your web browser and navigate to http://localhost:4200/.
+Explore movies, view details, and interact with the application.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# myFlix-Angular
+## Project Structure
+
+The project follows the structure below:
+
+myFlix-Angular-client/
+|-- src/
+|   |-- app/
+|       |-- bar/
+|       |-- movie-card/
+|       |-- user-login-form/
+|       |-- movie-info/
+|       |-- user-registration-form/
+|       |-- welcome-page/
+|       |-- app.component.* 
+|       |-- app.module.*
+|-- ...
+## Documentation
+
+The documentation for this project is generated using Typedoc. To generate documentation, run the following command:
+
+typedoc --out ./docs 
+
+This will create a docs folder with the generated documentation.
+
+## Contributing
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+License
+This project is licensed under the MIT License.
+
+
+
+
+
+

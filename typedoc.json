@@ -1,0 +1,25 @@
+// {
+//     "out": "./docs",
+//     "includes": [
+//       "src/app/bar",
+//       "src",
+//       "src/app/movie-card",
+//       "src/app/user-login-form",
+//       "src/app/movie-info",
+//       "src/app/user-registration-form",
+//       "src/app/welcome-page"
+//     ],
+//     "exclude": ["**/*.spec.ts"],
+//     "excludeExternals": true,
+//     "excludePrivate": true,
+//     "excludeProtected": true,
+//     "tsconfig": "tsconfig.json"
+//   }
+
+{
+    "out": "./docs",
+    "includes": ["./src"],
+    "exclude": ["node_modules", "**/*.spec.ts"],
+    "theme": "default"
+  }
+
