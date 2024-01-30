@@ -39,7 +39,9 @@ export class MovieCardComponent {
 
   ngOnInit(): void {
     this.getMovies();
-  }
+    const user: any = this.fetchApiData.getOneUser();
+    this.favoriteMovies = user.FavoriteMovies;
+    }
 
   /**
    * Opens a dialog displaying genre information.
@@ -144,14 +146,15 @@ export class MovieCardComponent {
    * Displays a notification on success or an error message on failure.
    * @param {string} id - Movie ID.
    */
-  addFavorite(id: string): void {
-    this.fetchApiData.addFavoriteMovie(id).subscribe(() => {
-      this.snackBar.open('Movie added to favorites.', 'OK', {
-        duration: 2000
-      });
-    }, (error) => {
-      console.error('Error adding movie to favorites:', error);
+ addFavorite(id: string): void {
+  this.fetchApiData.addFavoriteMovie(id).subscribe(() => {
+    this.snackBar.open('Movie added to favorites.', 'OK', {
+      duration: 2000
     });
+    this.favoriteMovies.push(id);
+  }, (error) => {
+    console.error('Error adding movie to favorites:', error);
+  });
   }
 
    /**
@@ -159,22 +162,23 @@ export class MovieCardComponent {
    * Displays a notification on success or an error message on failure.
    * @param {string} id - Movie ID.
    */
-  removeFavorite(id: string): void {
-    this.fetchApiData.deleteFavoriteMovie(this.movie.Username.id).subscribe(
+   removeFavorite(id: string): void {
+    this.fetchApiData.deleteFavoriteMovie(id).subscribe(
       () => {
         this.snackBar.open('Movie removed from favorites.', 'OK', { duration: 2000 });
+        this.favoriteMovies = this.favoriteMovies.filter((movieId) => id != movieId);
       },
       (error) => {
         console.error('Error removing movie from favorites:', error);
       }
     );
-  }
+    }
  /**
    * Checks if a movie with a given ID is in the list of favorite movies.
    * @param {string} movieId - Movie ID.
    * @returns {boolean} - True if the movie is a favorite, false otherwise.
    */
-  
+
   isFavoriteById(movieId: string): boolean {
     return this.favoriteMovies.includes(movieId);
   }
